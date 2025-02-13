@@ -6,6 +6,10 @@ import { ModuleFederationPlugin } from "@module-federation/enhanced/rspack";
 
 import { mfConfig } from "./module-federation.config";
 
+import * as pakageFile from "./package.json";
+
+const deps = pakageFile.dependencies;
+
 const isDev = process.env.NODE_ENV === "development";
 
 // Target browsers, see: https://github.com/browserslist/browserslist
@@ -18,6 +22,12 @@ export default defineConfig({
   },
   resolve: {
     extensions: ["...", ".ts", ".tsx", ".jsx"],
+    alias: {
+      "shared-context_shared-library": path.resolve(
+        __dirname,
+        "../shared-context"
+      ),
+    },
   },
 
   devServer: {
@@ -85,7 +95,7 @@ export default defineConfig({
     new rspack.HtmlRspackPlugin({
       template: "./index.html",
     }),
-    new ModuleFederationPlugin(mfConfig),
+    new ModuleFederationPlugin(mfConfig(deps)),
     isDev ? new RefreshPlugin() : null,
   ].filter(Boolean),
   optimization: {

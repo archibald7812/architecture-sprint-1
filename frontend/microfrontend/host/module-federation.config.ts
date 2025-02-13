@@ -3,8 +3,7 @@ export const mfConfig = (deps: any) => {
     name: "host",
     filename: "remoteEntry.js",
     remotes: {
-      // host: "host@http://localhost:3000/remoteEntry.js",
-      // auth: "auth@http://localhost:3001/remoteEntry.js",
+      auth: "auth@http://localhost:3001/remoteEntry.js",
       profile: "profile@http://localhost:3002/remoteEntry.js",
       cards: "cards@http://localhost:3003/remoteEntry.js",
     },

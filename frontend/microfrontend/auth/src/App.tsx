@@ -1,14 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
+import ReactDOM from "react-dom";
 import "./index.css";
+import Register from "./components/Register";
+import Login from "./components/Login";
 
 const App = () => (
   <div className="container">
-    <div>Name: auth</div>
-    <div>Framework: react-18</div>
+    <Register />
+    <Login />
   </div>
 );
 
-const root = ReactDOM.createRoot(document.getElementById("app") as HTMLElement);
-root.render(<App />);
+const root = document.getElementById("auth") as HTMLElement;
+
+ReactDOM.render(<App />, root);

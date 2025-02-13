@@ -36,6 +36,14 @@ export type AppContextType = {
   setUserHandler: (user: TUser) => void;
   cards: TCard[];
   setCardsHandler: (card: TCard) => TCard[];
+  loggedIn: boolean;
+  setLoggedIn: (isLigged: boolean) => void;
+  email: string;
+  setEmail: (email: string) => void;
+  tooltipStatus: string;
+  setTooltipStatus: (status: string) => void;
+  isInfoToolTipOpen: boolean;
+  setIsInfoToolTipOpen: (isOpen: boolean) => void;
 };
 
 const initialState: AppContextType = {
@@ -43,6 +51,14 @@ const initialState: AppContextType = {
   setUserHandler: () => null,
   cards: [],
   setCardsHandler: () => [],
+  loggedIn: false,
+  setLoggedIn: () => null,
+  email: "",
+  setEmail: () => null,
+  tooltipStatus: "",
+  setTooltipStatus: () => null,
+  isInfoToolTipOpen: false,
+  setIsInfoToolTipOpen: () => null,
 };
 
 export const AppContext = React.createContext<AppContextType>(initialState);

@@ -4,26 +4,69 @@ import "./index.css";
 import Main from "./components/Main.tsx";
 import { AppContext, IUser, ICard } from "shared-context_shared-library";
 import { useCallback, useMemo, useState } from "react";
+import React from "react";
 
 const App = () => {
   const [user, setUser] = useState<IUser>(null);
-  const [cards, setCards] = useState<IUser>(null);
+  const [cards, setCards] = useState<ICard>(null);
+  const [email, setEmail] = useState<string>("");
+  const [loggedIn, setLoggedIn] = useState<boolean>(false);
+  const [tooltipStatus, setTooltipStatus] = React.useState("");
+  const [isInfoToolTipOpen, setIsInfoToolTipOpen] = React.useState(false);
 
   const setUserHandler = useCallback((user: IUser) => {
-    console.log("setUser", user);
     setUser(user);
   }, []);
 
   const setCardsHandler = useCallback((card: ICard) => {
-    console.log("setCards", card);
     setCards(card);
   }, []);
 
-  const context = useMemo(() => {
-    return { user, setUserHandler, cards, setCardsHandler };
-  }, [user, setUserHandler, cards, setCardsHandler]);
+  const setEmailHandler = useCallback((email: string) => {
+    setEmail(email);
+  }, []);
 
-  console.log("MountContext", context);
+  const setLoggedInHandler = useCallback((isLogged: boolean) => {
+    setLoggedIn(isLogged);
+  }, []);
+
+  const setTooltipStatusHandler = useCallback((status: string) => {
+    setTooltipStatus(status);
+  }, []);
+
+  const setIsInfoToolTipOpenHandler = useCallback((isOpen: boolean) => {
+    setIsInfoToolTipOpen(isOpen);
+  }, []);
+
+  const context = useMemo(() => {
+    return {
+      user,
+      setUserHandler,
+      cards,
+      setCardsHandler,
+      email,
+      setEmailHandler,
+      loggedIn,
+      setLoggedInHandler,
+      tooltipStatus,
+      setTooltipStatusHandler,
+      isInfoToolTipOpen,
+      setIsInfoToolTipOpenHandler,
+    };
+  }, [
+    user,
+    setUserHandler,
+    cards,
+    setCardsHandler,
+    email,
+    setEmailHandler,
+    loggedIn,
+    setLoggedInHandler,
+    tooltipStatus,
+    setTooltipStatusHandler,
+    isInfoToolTipOpen,
+    setIsInfoToolTipOpenHandler,
+  ]);
 
   return (
     <AppContext.Provider value={context}>
