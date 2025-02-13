@@ -1,14 +1,14 @@
 import ReactDOM from "react-dom";
 
 import "./index.css";
-import Profile from "./components/Profile";
+import Cards from "./components/Cards";
 
 const App = () => (
   <div className="container">
-    <Profile />
+    <Cards />
   </div>
 );
 
-const root = document.getElementById("profile") as HTMLElement;
+const root = document.getElementById("cards") as HTMLElement;
 
 ReactDOM.render(<App />, root);

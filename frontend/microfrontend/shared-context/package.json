@@ -1,0 +1,13 @@
+{
+  "name": "shared-context",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}

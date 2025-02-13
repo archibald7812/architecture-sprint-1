@@ -1,1 +1,1 @@
-import("./components/Cards");
+import("./App");

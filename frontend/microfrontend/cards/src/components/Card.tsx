@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { AppContext } from "shared-context_shared-library";
+
 const Card = ({ card, onCardClick, onCardLike, onCardDelete }) => {
+  const { user } = useContext(AppContext);
   const cardStyle = { backgroundImage: `url(${card.link})` };
 
   function handleClick() {
@@ -13,14 +17,12 @@ const Card = ({ card, onCardClick, onCardLike, onCardDelete }) => {
     onCardDelete(card);
   }
 
-  const currentUser = {};
-
-  const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  const isLiked = card.likes.some((i) => i._id === user._id);
   const cardLikeButtonClassName = `card__like-button ${
     isLiked && "card__like-button_is-active"
   }`;
 
-  const isOwn = card.owner._id === currentUser._id;
+  const isOwn = card.owner._id === user._id;
   const cardDeleteButtonClassName = `card__delete-button ${
     isOwn ? "card__delete-button_visible" : "card__delete-button_hidden"
   }`;
