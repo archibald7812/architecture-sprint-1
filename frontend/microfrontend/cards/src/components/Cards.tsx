@@ -3,6 +3,7 @@ import Card from "./Card";
 import api from "../utils/api";
 import { AppContext } from "shared-context_shared-library";
 import ImagePopup from "./ImagePopup";
+import "../index.css";
 
 const Cards = () => {
   const { user, cards, setCardsHandler } = useContext(AppContext);

@@ -4,6 +4,7 @@ import { AppContext } from "shared-context_shared-library";
 import EditProfilePopup from "./EditProfilePopup";
 import EditAvatarPopup from "./EditAvatarPopup";
 import AddPlacePopup from "./AddPlacePopup";
+import "../index.css";
 
 const Profile = () => {
   const { user, setUserHandler, setCardsHandler, cards } =
